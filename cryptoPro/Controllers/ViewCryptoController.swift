@@ -16,6 +16,7 @@ class ViewCryptoController: UIViewController {
     
     //private var onImageLoaded: ((UIImage?)->Void)?
     // tets
+    // test
     
     
     // MARK: UI Components
