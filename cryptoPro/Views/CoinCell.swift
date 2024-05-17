@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CoinCell: UITableViewCell {
 
@@ -21,12 +22,11 @@ class CoinCell: UITableViewCell {
     
     // MARK: - UI Components
     
-    private let coinLoge: UIImageView = {
+    private var coinLoge: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
         iv.image = UIImage(systemName: "questionmark")
         iv.tintColor = .black
-        //iv.backgroundColor = .systemBlue
         return iv
     }()
 
@@ -53,25 +53,25 @@ class CoinCell: UITableViewCell {
     
     public func configure(with coin: Coin) {
         self.coin = coin
+        
         self.coinName.text = coin.name
-        
-        
-        let imageData = try? Data(contentsOf: self.coin.logoURL!)
-        
-        if let imageData = imageData {
-            
-            DispatchQueue.main.async { [weak self] in
-                self?.coinLoge.image = UIImage(data: imageData)
-            }
-        }
+        self.coinLoge.sd_setImage(with: coin.logoURL)
+//        DispatchQueue.global().async {
+//            let imageData = try? Data(contentsOf: self.coin.logoURL!)
+//            if let imageData = imageData {
+//
+//                DispatchQueue.main.async { [weak self] in
+//                    self?.coinLoge.image = UIImage(data: imageData)
+//                }
+//            }
+//        }
         
     }
     
     
     // TODO: - PrepareForReuse
     
-    
-    
+
     
     //MARK: - UI Setup
     

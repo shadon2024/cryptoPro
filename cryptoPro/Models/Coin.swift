@@ -34,15 +34,6 @@ struct Coin: Decodable {
         
     }
     
-//    struct Quote {
-//        let CAD: CAD
-//
-//        struct CAD {
-//            let price: Double
-//            let market_cap: Double
-//        }
-//    }
-    
 }
 
 
@@ -58,37 +49,5 @@ struct CAD: Decodable {
     let market_cap: Double
 }
 
-
-
-
-
-//struct PricingData: Decodable {
-//    let price: Double
-//    let market_cap: Double
-//
-//    enum CodingKeys: String, CodingKey {
-//        case CAD
-//        case price
-//       ćcase marketCap = "market_cap"
-//    }
-//
-//    init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        let cad = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .CAD)
-//        price = try cad.decode(Double.self, forKey: .price)
-//        market_cap = try cad.decode(Double.self, forKey: .marketCap)
-//    }
-//}
-
-
-//extension Coin {
-//    public static func getMockArray() -> [Coin]{
-//        return [
-//            Coin(id: 1, name: "Bitcoin", max_supply: 200, cmc_rank: 1, quote: Quote(CAD: Quote.CAD(price: 50000, market_cap: 1_000_000))),
-//            Coin(id: 2, name: "Ethereum", max_supply: nil, cmc_rank: 2, quote: Quote(CAD: Quote.CAD(price: 2000, market_cap: 500_000))),
-//            Coin(id: 3, name: "Monero", max_supply: nil, cmc_rank: 3, quote: Quote(CAD: Quote.CAD(price: 200, market_cap: 250_000)))
-//            ]
-//    }
-//}
 
 

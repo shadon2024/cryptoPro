@@ -10,13 +10,8 @@ import UIKit
 class ViewCryptoController: UIViewController {
 
     // MARK: VAriables
-    //private let coin: Coin
     let viewModel: ViewCryptoControllerViewmodel
-    //let viewModel: ViewCryptoController
-    
-    //private var onImageLoaded: ((UIImage?)->Void)?
-    // tets
-    // test
+ 
     
     
     // MARK: UI Components
@@ -37,7 +32,6 @@ class ViewCryptoController: UIViewController {
         iv.contentMode = .scaleAspectFit
         iv.image = UIImage(systemName: "questionmark")
         iv.tintColor = .label
-        //iv.backgroundColor = .systemBlue
         return iv
     }()
     
@@ -112,18 +106,14 @@ class ViewCryptoController: UIViewController {
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: nil, action: nil)
  
         
-        self.rankLabel.text = self.viewModel.rankLabel.description
-        self.priceLabel.text = self.viewModel.priceLabel.description
-        self.marketCapLabel.text = self.viewModel.marketCapLabel.description
+        self.rankLabel.text = self.viewModel.rankLabel
+        self.priceLabel.text = self.viewModel.priceLabel
+        self.marketCapLabel.text = self.viewModel.marketCapLabel
         
-        self.maxSupplyLabel.text = self.viewModel.maxSupplyLabel.description
+        self.maxSupplyLabel.text = self.viewModel.maxSupplyLabel
         
-        //self.viewModel.
-        self.viewModel.onImageLoaded = { [ weak self ] logoImage in
-            DispatchQueue.main.async {
-                self?.coinLoge.image = logoImage
-            }
-        }
+        
+        self.coinLoge.sd_setImage(with: self.viewModel.coin.logoURL)
 
         
     }
@@ -174,7 +164,7 @@ class ViewCryptoController: UIViewController {
             coinLoge.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
             coinLoge.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
             coinLoge.heightAnchor.constraint(equalToConstant: 120),
-            //coinLoge.widthAnchor.constraint(equalToConstant: 120),
+            
             
             vStack.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             vStack.topAnchor.constraint(equalTo: coinLoge.bottomAnchor, constant: 20),
@@ -186,18 +176,6 @@ class ViewCryptoController: UIViewController {
     }
     
  
-    
-    
-    
-    
-    // MARK: Selectors
-
-
-
-
-
-    // MARK: TableView Functions
-
   
 
 }

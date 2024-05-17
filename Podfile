@@ -6,5 +6,8 @@ target 'cryptoPro' do
   use_frameworks!
 
   # Pods for cryptoPro
+  pod 'SnapKit', '~> 5.0.1'
+  pod 'SDWebImage'
+
 
 end

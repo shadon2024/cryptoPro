@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -16,11 +17,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        let first = HomeController()
-        window.rootViewController = UINavigationController(rootViewController: first)
+        //let first = HomeController()
+        window.rootViewController = UINavigationController(rootViewController: HomeController())
         self.window = window
         self.window?.makeKeyAndVisible()
         
+        print("DEBAG PRINT", SDImageCache.shared.diskCache.totalSize())
+        
+        SDImageCache.shared.config.maxDiskSize = 1000000 * 20
         
         
     }
